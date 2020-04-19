@@ -1,24 +1,10 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import AnywherePaintContext from '../Contexts/AnywherePaintContext';
+import { flexSize } from '../typings/MaterialUI';
 
 interface Props {
-  ratio:
-    | boolean
-    | 'auto'
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | undefined;
+  ratio: flexSize;
   isInitialized: boolean;
 }
 

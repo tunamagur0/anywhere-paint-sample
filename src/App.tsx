@@ -2,8 +2,11 @@ import React from 'react';
 import AnywherePaint from 'anywhere-paint';
 import ColorCircle from './Components/ColorCircle';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import AnywherePaintContext from './Contexts/AnywherePaintContext';
+import Blush from './Components/Blush';
+import BlushSize from './Components/BlushSize';
+import Layer from './Components/Layer';
+import Undo from './Components/Undo';
 
 interface State {
   awPaint: AnywherePaint | null;
@@ -36,24 +39,52 @@ class App extends React.Component<{}, State> {
       isInitialized: true,
     });
   }
-  componentDidUpdate() {
-    // this.state.awPaint?.createColorCircle(
-    //   document.getElementById('color-circle') as HTMLDivElement
-    // );
-  }
 
   render() {
     return (
       <AnywherePaintContext.Provider value={{ awPaint: this.state.awPaint }}>
-        <Container style={{ width: '100vw', height: '100vh' }}>
-          <Grid container style={{ width: '100%', height: '100%' }}>
+        <Grid container style={{ width: '100vw', height: '100vh' }}>
+          <Grid container item xs={2}>
             <ColorCircle
-              ratio={3}
+              ratio={12}
               isInitialized={this.state.isInitialized}
             ></ColorCircle>
-            <Grid item xs={6} ref={this.container} />
+            <BlushSize ratio={12}></BlushSize>
           </Grid>
-        </Container>
+          <Grid
+            container
+            item
+            xs={8}
+            direction="column"
+            alignItems="stretch"
+            justify="space-around"
+          >
+            <Grid container item justify="center">
+              <Undo ratio={4}></Undo>
+              <Grid item xs={4}></Grid>
+              <Blush ratio={4}></Blush>
+            </Grid>
+            <Grid
+              container
+              item
+              alignItems="center"
+              justify="center"
+              style={{ width: '100%', overflow: 'hidden' }}
+            >
+              <Grid
+                item
+                style={{
+                  width: this.state.width,
+                  height: this.state.height,
+                  border: 'solid 1px black',
+                }}
+                ref={this.container}
+              ></Grid>
+            </Grid>
+            <Grid item></Grid>
+          </Grid>
+          <Layer ratio={2}></Layer>
+        </Grid>
       </AnywherePaintContext.Provider>
     );
   }
