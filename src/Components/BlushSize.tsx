@@ -8,9 +8,21 @@ import {
   FormControlLabel,
   GridList,
   GridListTile,
+  Theme,
+  StyleRules,
+  createStyles,
+  WithStyles,
+  withStyles,
 } from '@material-ui/core';
 
-interface Props {
+const styles = (theme: Theme): StyleRules =>
+  createStyles({
+    container: {
+      background: 'white',
+    },
+  });
+
+interface Props extends WithStyles<typeof styles> {
   ratio: flexSize;
 }
 
@@ -48,7 +60,10 @@ class BlushSize extends React.Component<Props, State> {
     ));
     return (
       <Grid item xs={this.props.ratio}>
-        <GridList style={{ height: '80%' }}>
+        <GridList
+          style={{ height: '80%' }}
+          className={this.props.classes.container}
+        >
           <RadioGroup
             row
             style={{ width: '100%' }}
@@ -63,4 +78,4 @@ class BlushSize extends React.Component<Props, State> {
   }
 }
 
-export default BlushSize;
+export default withStyles(styles)(BlushSize);

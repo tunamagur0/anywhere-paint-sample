@@ -3,8 +3,24 @@ import AnywherePaintContext from '../Contexts/AnywherePaintContext';
 import { Radio, Grid } from '@material-ui/core';
 import { PenStyle } from '../../node_modules/anywhere-paint/lib/lineRender.d';
 import { flexSize } from '../typings/MaterialUI';
+import {
+  Theme,
+  StyleRules,
+  createStyles,
+  WithStyles,
+  withStyles,
+} from '@material-ui/core';
 
-interface Props {
+const styles = (theme: Theme): StyleRules =>
+  createStyles({
+    container: {
+      '& div': {
+        background: 'white',
+      },
+    },
+  });
+
+interface Props extends WithStyles<typeof styles> {
   ratio: flexSize;
 }
 
@@ -43,6 +59,7 @@ class Blush extends React.Component<Props, State> {
         container
         item
         xs={this.props.ratio}
+        className={this.props.classes.container}
         alignItems="center"
         justify="center"
       >
@@ -52,4 +69,4 @@ class Blush extends React.Component<Props, State> {
   }
 }
 
-export default Blush;
+export default withStyles(styles)(Blush);

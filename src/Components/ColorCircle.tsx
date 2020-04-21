@@ -2,8 +2,24 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import AnywherePaintContext from '../Contexts/AnywherePaintContext';
 import { flexSize } from '../typings/MaterialUI';
+import {
+  Theme,
+  StyleRules,
+  createStyles,
+  WithStyles,
+  withStyles,
+} from '@material-ui/core';
 
-interface Props {
+const styles = (theme: Theme): StyleRules =>
+  createStyles({
+    container: {
+      '& div': {
+        background: 'white',
+      },
+    },
+  });
+
+interface Props extends WithStyles<typeof styles> {
   ratio: flexSize;
   isInitialized: boolean;
 }
@@ -25,8 +41,15 @@ class ColorCircle extends React.Component<Props> {
   }
 
   render() {
-    return <Grid item xs={this.props.ratio} ref={this.div}></Grid>;
+    return (
+      <Grid
+        item
+        className={this.props.classes.container}
+        xs={this.props.ratio}
+        ref={this.div}
+      ></Grid>
+    );
   }
 }
 
-export default ColorCircle;
+export default withStyles(styles)(ColorCircle);

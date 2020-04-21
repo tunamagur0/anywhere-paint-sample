@@ -1946,7 +1946,7 @@ anymatch@~3.1.1:
 
 anywhere-paint@./anywhere-paint-0.0.4.tgz:
   version "0.0.4"
-  resolved "./anywhere-paint-0.0.4.tgz#878569985b4d03d882437f0683f5790582ead8c9"
+  resolved "./anywhere-paint-0.0.4.tgz#6f02959a79cd2f5e8b12bdb6bcac37ccdf58a016"
 
 aproba@^1.1.1:
   version "1.2.0"
