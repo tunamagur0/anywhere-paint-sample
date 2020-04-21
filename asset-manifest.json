@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/anywhere-paint-sample/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/anywhere-paint-sample/static/js/main.d4f4219a.chunk.js",
+    "main.js.map": "/anywhere-paint-sample/static/js/main.d4f4219a.chunk.js.map",
+    "runtime-main.js": "/anywhere-paint-sample/static/js/runtime-main.f9376246.js",
+    "runtime-main.js.map": "/anywhere-paint-sample/static/js/runtime-main.f9376246.js.map",
+    "static/js/2.17636f00.chunk.js": "/anywhere-paint-sample/static/js/2.17636f00.chunk.js",
+    "static/js/2.17636f00.chunk.js.map": "/anywhere-paint-sample/static/js/2.17636f00.chunk.js.map",
+    "index.html": "/anywhere-paint-sample/index.html",
+    "precache-manifest.7f955f42ebba2021ce598ddbaf6ec113.js": "/anywhere-paint-sample/precache-manifest.7f955f42ebba2021ce598ddbaf6ec113.js",
+    "service-worker.js": "/anywhere-paint-sample/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/anywhere-paint-sample/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.17636f00.chunk.js.LICENSE.txt": "/anywhere-paint-sample/static/js/2.17636f00.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f9376246.js",
+    "static/js/2.17636f00.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.d4f4219a.chunk.js"
+  ]
+}
