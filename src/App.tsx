@@ -93,7 +93,7 @@ class App extends React.Component<WithStyles<typeof styles>, State> {
               ></Canvas>
               <Grid item></Grid>
             </Grid>
-            <Layer ratio={2}></Layer>
+            <Layer ratio={2} isInitialized={this.state.isInitialized}></Layer>
           </Grid>
         </AnywherePaintContext.Provider>
       </div>

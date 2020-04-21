@@ -43,10 +43,14 @@ class Undo extends React.Component<Props> {
         className={this.props.classes.container}
         xs={this.props.ratio}
         alignItems="center"
-        justify="center"
+        justify="space-around"
       >
-        <Button onClick={() => this.handleClick(true)}>Undo</Button>
-        <Button onClick={() => this.handleClick(false)}>Redo</Button>
+        <Grid>
+          <Button onClick={() => this.handleClick(true)}>Undo</Button>
+        </Grid>
+        <Grid>
+          <Button onClick={() => this.handleClick(false)}>Redo</Button>
+        </Grid>
       </Grid>
     );
   }

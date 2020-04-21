@@ -1,6 +1,6 @@
 import React from 'react';
 import AnywherePaintContext from '../Contexts/AnywherePaintContext';
-import { Radio, Grid } from '@material-ui/core';
+import { Radio, Grid, RadioGroup, FormControlLabel } from '@material-ui/core';
 import { PenStyle } from '../../node_modules/anywhere-paint/lib/lineRender.d';
 import { flexSize } from '../typings/MaterialUI';
 import {
@@ -16,6 +16,7 @@ const styles = (theme: Theme): StyleRules =>
     container: {
       '& div': {
         background: 'white',
+        borderRadius: '10px',
       },
     },
   });
@@ -47,12 +48,16 @@ class Blush extends React.Component<Props, State> {
 
   render() {
     const buttons = this.pencils.map((e) => (
-      <Radio
-        value={e}
-        onChange={(e) => this.handleChange(e)}
-        checked={e === this.state.Pencil}
-        key={e}
-      />
+      <Grid key={e}>
+        <FormControlLabel
+          value={e}
+          control={<Radio />}
+          label={e}
+          checked={e === this.state.Pencil}
+          key={e}
+          labelPlacement="bottom"
+        />
+      </Grid>
     ));
     return (
       <Grid
@@ -61,9 +66,16 @@ class Blush extends React.Component<Props, State> {
         xs={this.props.ratio}
         className={this.props.classes.container}
         alignItems="center"
-        justify="center"
+        justify="space-around"
       >
-        {buttons}
+        <RadioGroup
+          row
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            this.handleChange(e)
+          }
+        >
+          {buttons}
+        </RadioGroup>
       </Grid>
     );
   }

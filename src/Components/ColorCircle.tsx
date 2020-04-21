@@ -15,6 +15,7 @@ const styles = (theme: Theme): StyleRules =>
     container: {
       '& div': {
         background: 'white',
+        borderRadius: '10px',
       },
     },
   });
