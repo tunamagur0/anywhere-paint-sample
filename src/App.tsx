@@ -16,6 +16,7 @@ import {
   createStyles,
   WithStyles,
 } from '@material-ui/core';
+import UtilButtons from './Components/UtilButtons';
 
 const styles = (theme: Theme): StyleRules =>
   createStyles({
@@ -78,7 +79,7 @@ class App extends React.Component<WithStyles<typeof styles>, State> {
             >
               <Grid container item justify="center">
                 <Undo ratio={4}></Undo>
-                <Grid item xs={4}></Grid>
+                <UtilButtons ratio={4}></UtilButtons>
                 <Blush ratio={4}></Blush>
               </Grid>
               <Canvas

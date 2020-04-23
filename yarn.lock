@@ -1944,10 +1944,10 @@ anymatch@~3.1.1:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-anywhere-paint@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/anywhere-paint/-/anywhere-paint-0.0.5.tgz#df2153f8309c8f95310c7c83f2801a6dac32857f"
-  integrity sha512-nL8YdTPtkyrhTtye7dHr4OeoSrs5xLjNoNudAk8vxkb4bAwukTrnChmrerWP6MMPLqSd3X3amSM8wiCieBF5Sw==
+anywhere-paint@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/anywhere-paint/-/anywhere-paint-1.0.0.tgz#d696174f1caa83e12dd7dc6c3a9b6f3fbf85cbc9"
+  integrity sha512-cb45ZOns3/oq6PhTg/yBeemem+pYxaJMt3Znz/FrDsqlQTwSJruiBQGPRSHoJft8oI7xytr/1JplIk74JLT3qg==
 
 aproba@^1.1.1:
   version "1.2.0"
