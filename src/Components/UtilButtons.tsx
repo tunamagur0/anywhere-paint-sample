@@ -39,9 +39,8 @@ class UtilButtons extends React.Component<Props, State> {
   }
 
   private download(): void {
-    console.log(this.state.downloadName);
     const a = document.createElement('a');
-    a.download = 'image.png';
+    a.download = this.state.downloadName;
     a.href = this.context.awPaint.getIntegratedImage();
     a.click();
   }
