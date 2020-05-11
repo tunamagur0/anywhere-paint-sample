@@ -1,7 +1,7 @@
 import React from 'react';
 import AnywherePaintContext from '../Contexts/AnywherePaintContext';
 import { Radio, Grid, RadioGroup, FormControlLabel } from '@material-ui/core';
-import { PenStyle } from '../../node_modules/anywhere-paint/lib/lineRender.d';
+import { PenStyle } from '../../node_modules/anywhere-paint/lib/penInterface.d';
 import { flexSize } from '../typings/MaterialUI';
 import {
   Theme,
@@ -37,7 +37,7 @@ class Blush extends React.Component<Props, State> {
     this.state = {
       Pencil: 'Pencil',
     };
-    this.pencils = ['Pencil', 'Eraser'];
+    this.pencils = ['Pencil', 'Eraser', 'Fill'];
   }
 
   private handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
