@@ -27,6 +27,7 @@ const styles = (theme: Theme): StyleRules =>
 interface Props extends WithStyles<typeof styles> {
   ratio: flexSize;
   isInitialized: boolean;
+  isUpdated: boolean;
 }
 
 interface State {
@@ -38,7 +39,6 @@ interface State {
 
 class Layer extends React.Component<Props, State> {
   static contextType = AnywherePaintContext;
-  private id: number = -1;
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -49,11 +49,15 @@ class Layer extends React.Component<Props, State> {
     };
   }
 
-  componentDidUpdate() {
-    if (this.props.isInitialized && this.id === -1) {
-      this.id = window.setInterval(() => {
-        this.getNewData();
-      }, 1000);
+  componentDidUpdate(prevProps: Props) {
+    if (this.props.isInitialized && !prevProps.isInitialized) {
+      this.context.container.current.addEventListener('pointerup', () =>
+        this.getNewData()
+      );
+      this.getNewData();
+    }
+    if (this.props.isUpdated) {
+      this.getNewData();
     }
     return true;
   }

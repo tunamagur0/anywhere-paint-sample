@@ -22,7 +22,10 @@ const styles = (theme: Theme): StyleRules =>
 interface Props extends WithStyles<typeof styles> {
   width: number;
   height: number;
-  intialize: (awPaint: AnywherePaint) => void;
+  intialize: (
+    awPaint: AnywherePaint,
+    container: React.RefObject<HTMLDivElement>
+  ) => void;
 }
 
 class Canvas extends React.Component<Props> {
@@ -39,7 +42,8 @@ class Canvas extends React.Component<Props> {
         this.container.current as HTMLDivElement,
         this.props.width,
         this.props.height
-      )
+      ),
+      this.container
     );
   }
 

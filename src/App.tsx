@@ -35,9 +35,11 @@ const styles = (theme: Theme): StyleRules =>
 
 interface State {
   awPaint: AnywherePaint | null;
+  container: React.RefObject<HTMLDivElement> | null;
   width: number;
   height: number;
   isInitialized: boolean;
+  isUpdated: boolean;
 }
 
 class App extends React.Component<WithStyles<typeof styles>, State> {
@@ -45,16 +47,33 @@ class App extends React.Component<WithStyles<typeof styles>, State> {
     super(props);
     this.state = {
       awPaint: null,
+      container: null,
       width: 1200,
       height: 800,
       isInitialized: false,
+      isUpdated: false,
     };
+  }
+
+  componentDidUpdate(prevProps: {}, prevState: State) {
+    if (!prevState.isUpdated && this.state.isUpdated) {
+      this.setState({ isUpdated: false });
+    }
+    console.log(this.state);
+    // if (this.state.isUpdated) {
+    //   this.setState({ isUpdated: false });
+    // }
   }
 
   render() {
     return (
       <div className={this.props.classes.root}>
-        <AnywherePaintContext.Provider value={{ awPaint: this.state.awPaint }}>
+        <AnywherePaintContext.Provider
+          value={{
+            awPaint: this.state.awPaint,
+            container: this.state.container,
+          }}
+        >
           <Grid container className={this.props.classes.container}>
             <Grid
               container
@@ -78,23 +97,34 @@ class App extends React.Component<WithStyles<typeof styles>, State> {
               justify="space-around"
             >
               <Grid container item justify="center">
-                <Undo ratio={4}></Undo>
+                <Undo
+                  ratio={4}
+                  onUpdate={() => this.setState({ isUpdated: true })}
+                ></Undo>
                 <UtilButtons ratio={4}></UtilButtons>
                 <Blush ratio={4}></Blush>
               </Grid>
               <Canvas
                 width={this.state.width}
                 height={this.state.height}
-                intialize={(awPaint: AnywherePaint) => {
+                intialize={(
+                  awPaint: AnywherePaint,
+                  container: React.RefObject<HTMLDivElement>
+                ) => {
                   this.setState({
                     awPaint: awPaint,
                     isInitialized: true,
+                    container: container,
                   });
                 }}
               ></Canvas>
               <Grid item></Grid>
             </Grid>
-            <Layer ratio={2} isInitialized={this.state.isInitialized}></Layer>
+            <Layer
+              ratio={2}
+              isInitialized={this.state.isInitialized}
+              isUpdated={this.state.isUpdated}
+            ></Layer>
           </Grid>
         </AnywherePaintContext.Provider>
       </div>

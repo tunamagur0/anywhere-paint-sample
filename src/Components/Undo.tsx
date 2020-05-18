@@ -22,6 +22,7 @@ const styles = (theme: Theme): StyleRules =>
 
 interface Props extends WithStyles<typeof styles> {
   ratio: flexSize;
+  onUpdate: () => void;
 }
 
 class Undo extends React.Component<Props> {
@@ -33,6 +34,7 @@ class Undo extends React.Component<Props> {
     } else {
       this.context.awPaint.redo();
     }
+    this.props.onUpdate();
   }
 
   render() {

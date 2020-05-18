@@ -33,8 +33,8 @@ class ColorCircle extends React.Component<Props> {
     this.div = React.createRef();
   }
 
-  componentDidUpdate() {
-    if (this.props.isInitialized)
+  componentDidUpdate(prevProps: Props) {
+    if (!prevProps.isInitialized && this.props.isInitialized)
       this.context.awPaint.createColorCircle(
         this.div.current as HTMLDivElement
       );
