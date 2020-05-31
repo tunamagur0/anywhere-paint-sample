@@ -59,7 +59,6 @@ class App extends React.Component<WithStyles<typeof styles>, State> {
     if (!prevState.isUpdated && this.state.isUpdated) {
       this.setState({ isUpdated: false });
     }
-    console.log(this.state);
     // if (this.state.isUpdated) {
     //   this.setState({ isUpdated: false });
     // }
