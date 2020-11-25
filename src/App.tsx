@@ -59,10 +59,6 @@ class App extends React.Component<WithStyles<typeof styles>, State> {
     if (!prevState.isUpdated && this.state.isUpdated) {
       this.setState({ isUpdated: false });
     }
-    console.log(this.state);
-    // if (this.state.isUpdated) {
-    //   this.setState({ isUpdated: false });
-    // }
   }
 
   render() {
@@ -101,6 +97,7 @@ class App extends React.Component<WithStyles<typeof styles>, State> {
                   ratio={4}
                   onUpdate={() => this.setState({ isUpdated: true })}
                 ></Undo>
+
                 <UtilButtons ratio={4}></UtilButtons>
                 <Blush ratio={4}></Blush>
               </Grid>

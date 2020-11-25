@@ -53,6 +53,18 @@ class Undo extends React.Component<Props> {
         <Grid>
           <Button onClick={() => this.handleClick(false)}>Redo</Button>
         </Grid>
+        <Grid>
+          <Button
+            onClick={() => {
+              this.context.awPaint.clearLayer(
+                this.context.awPaint.selectingLayer
+              );
+              this.props.onUpdate();
+            }}
+          >
+            Clear
+          </Button>
+        </Grid>
       </Grid>
     );
   }
